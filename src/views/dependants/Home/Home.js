@@ -1,23 +1,35 @@
 import React from 'react';
-import { Box, Container } from '@material-ui/core';
+import { Card, CardContent, CardMedia, CardActionArea, Typography, Box, Container, makeStyles, createStyles } from '@material-ui/core';
 import { LayoutConfig } from 'constants/index';
 import {StoryArAPI} from 'helpers';
 
+const useStyles = makeStyles(theme => createStyles({
+  root: {
+    padding: theme.spacing(2),
+    margin: theme.spacing(2),
+    width: "50%"
+  }
+}));
 
 export const Home = () => {
-  // Declare data hook
-  const [stories, setStories] = React.useState();
+  const classes = useStyles();
 
-  React.useEffect(() => {
-    StoryArAPI.getStories().then( response => setStories(response.data.data));
-    console.log("test");
+  // Declare data hook
+  const [stories, setStories] = React.useState([]);
+
+  // A function getting data by calling the API
+  const fetchData = React.useCallback (() => {
+    StoryArAPI.getStories()
+      .then( response => setStories(response.data.data))
+      .catch(err => {
+        console.log(err);
+      });
   },[]);
 
-  const test = () => {
-    console.log("Test: ", {stories});
-  };
-
-  test();
+  // Call the fetchData function to get data from api when the component is being loaded
+  React.useEffect(() => {
+    fetchData();
+  },[fetchData]);
 
   return (<Box sx={LayoutConfig.defaultContainerSX}>
     <Container
@@ -34,7 +46,25 @@ export const Home = () => {
         }
       }}
     >
-      {stories.map(story => <div key={story._id}> {story.title} </div>)}
+      {stories.map(story => (
+        <Card className={classes.root} key={story._id}>
+          <CardActionArea>
+            <CardMedia
+              className={classes.media}
+              image="/static/images/cards/contemplative-reptile.jpg" // TO BE: Story avatar
+              title="Contemplative Reptile"
+            />
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="h2">
+                {story.title}
+              </Typography>
+              <Typography variant="body2" color="textSecondary" component="p">
+                TO BE: story description
+              </Typography>
+            </CardContent>
+          </CardActionArea>
+        </Card>
+      ))}
       
     </Container>
   </Box>);

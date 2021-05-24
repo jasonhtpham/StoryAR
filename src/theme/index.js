@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import merge from 'lodash/merge';
-import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
+import { createTheme as createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
 import { THEMES } from '../constants/theme';
 import { lightShadows, darkShadows } from './shadows';
 import { LoadingScreen } from 'components/index';
