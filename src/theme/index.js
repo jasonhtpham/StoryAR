@@ -6,7 +6,7 @@ import { THEMES } from '../constants/theme';
 import { lightShadows, darkShadows } from './shadows';
 import { LoadingScreen } from 'components/index';
 import { LayoutContext } from 'contexts/index';
-import { MuiThemeProvider } from '@material-ui/core';
+import { ThemeProvider as MuiThemeProvider } from '@material-ui/core/styles';
 
 const baseOptions = {
   direction: 'ltr',
