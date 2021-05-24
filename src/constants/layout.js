@@ -13,6 +13,15 @@ class Layout {
         "subMenuItems": []
       },
       {
+        "name": "Dashboard",
+        "type": "button",
+        "icon": "ant-design:dashboard-filled",
+        "controller": "/dashboard",
+        "customTitle": "Story AR Dashboard",
+        "isFavourite": true,
+        "subMenuItems": []
+      },
+      {
         "name": "Example",
         "type": "button",
         "icon": "bytesize:code",

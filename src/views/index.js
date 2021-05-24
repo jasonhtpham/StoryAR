@@ -8,7 +8,10 @@ import { Register } from './common/Register/Register';
 import { Home } from './dependants/Home/Home';
 import { MobileMenu } from './dependants/mobileMenu/mobileMenu';
 import { Example } from './dependants/Example/Example';
+import { Dashboard } from './dependants/Dashboard/Dashboard';
+
 export {
+  Dashboard,
   Example,
   Login,
   Register,
