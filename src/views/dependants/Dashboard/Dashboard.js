@@ -1,6 +1,9 @@
 import React from 'react';
-import { Box, Container, TextField, Grid, Typography, Paper, FormControl, InputLabel, Select, MenuItem, makeStyles, createStyles } from '@material-ui/core';
+import { Box, Container, TextField, Grid, Typography, Paper, FormControl, InputLabel, Select, MenuItem, IconButton, Button, makeStyles, createStyles } from '@material-ui/core';
+import Add from '@material-ui/icons/Add';
+import DeleteIcon from '@material-ui/icons/Delete';
 import { LayoutConfig } from 'constants/index';
+import { v4 as uuidv4 } from 'uuid';
 // import { classes } from '../../../../node_modules/coa/coa';
 // import {StoryArAPI} from 'helpers';
 
@@ -11,51 +14,46 @@ const useStyles = makeStyles(theme => createStyles({
   formControl: {
     minWidth: 120,
   },
+  assetForm: {
+    padding: theme.spacing(3)
+  },
+  button: {
+    marginBottom: theme.spacing(2),
+  }
 }));
 
 export const Dashboard = () => {
   const classes = useStyles();
 
   const [aim, setAim] = React.useState(null);
+  const [assets, setAssets] = React.useState([
+    {
+      id: uuidv4(),
+      type: "", 
+      assetDesc: "",
+      latitude: "",
+      longtitude: ""
+    }
+  ]);
 
   const handleChange = (event) => {
     setAim(event.target.value);
   };
 
-  
+  const handleAddAsset = () => {
+    setAssets([...assets, { 
+      type: "", 
+      assetDesc: "",
+      latitude: "",
+      longtitude: "" }]);
+  };
 
-  // const renderAssetInputs = () => {
-  //   for (let i = 0 ; i < assetAmount ; i++) {
-  //     document.getElementById("assets").appendChild(
-  //       <React.Fragment>
-  //         <Grid item xs={12}>
-  //           <TextField
-  //             required
-  //             id={`assetType${i}`}
-  //             name="assetType"
-  //             label="Asset Type"
-  //             fullWidth
-  //           />
-  //         </Grid>
-  //         <Grid item xs={6} sm={6}>
-  //           <TextField
-  //             required
-  //             id={`asset${i}Lat`}
-  //             name="lat"
-  //             label="Latitude"
-  //           />
-  //         </Grid>
-  //         <Grid item xs={6} sm={6}>
-  //           <TextField
-  //             required
-  //             id={`asset${i}Long`}
-  //             name="long"
-  //             label="Longtitude"
-  //           />
-  //         </Grid>
-  //       </React.Fragment>);
-  //   }
-  // };
+  const handleRemoveAsset = (id) => {
+    console.log({id});
+    const values  = [...assets];
+    values.splice(values.findIndex(value => value.id === id), 1);
+    setAssets(values);
+  };
 
   return (<Box sx={LayoutConfig.defaultContainerSX}>
     <Container
@@ -79,7 +77,7 @@ export const Dashboard = () => {
         <form>
           <Grid container spacing={3}>
 
-            <Grid item xs={12} sm={12}>
+            <Grid item xs={12} sm={9}>
               <TextField
                 required
                 id="title"
@@ -89,20 +87,7 @@ export const Dashboard = () => {
               />
             </Grid>
 
-            <Grid item xs={12} sm={12}>
-              <TextField
-                required
-                id="outlined-multiline-static"
-                label="Description"
-                multiline
-                rows={2}
-                fullWidth
-                placeholder="A brief description of the story"
-                variant="outlined"
-              />
-            </Grid>
-
-            <Grid item xs={6} sm={6}>
+            <Grid item xs={12} sm={3}>
               <FormControl variant="outlined" className={classes.formControl}>
                 <InputLabel id="aim">Aim</InputLabel>
                 <Select
@@ -123,7 +108,85 @@ export const Dashboard = () => {
               </FormControl>
             </Grid>
 
-            <Grid item xs={6}>
+            <Grid item xs={12} sm={12}>
+              <TextField
+                required
+                id="outlined-multiline-static"
+                label="Description"
+                multiline
+                rows={2}
+                fullWidth
+                placeholder="A brief description of the story"
+                variant="outlined"
+              />
+            </Grid>
+
+            {assets.map((asset, index) =>
+              <div key={asset.id} className={classes.assetForm}>
+                <Grid container spacing={1}>
+                  <Grid item xs={2}>
+                    <Typography variant="h6" gutterBottom>
+                      Asset {index+1}
+                    </Typography>
+                  </Grid>
+
+                  <Grid item xs>
+                    <Button
+                      size="small"
+                      variant="contained"
+                      color="secondary"
+                      className={classes.button}
+                      startIcon={<DeleteIcon />}
+                      onClick={() => handleRemoveAsset(asset.id)}
+                      disabled={assets.length === 1}
+                    >
+                      Delete
+                    </Button>
+                  </Grid>
+                  
+                </Grid>
+                <Grid container spacing={3}>
+                  <Grid item xs={12}>
+                    <TextField
+                      required
+                      // id={`assetType${i}`}
+                      name="assetType"
+                      label="Asset Type"
+                      value={asset.type}
+                      fullWidth
+                    />
+                  </Grid>
+                  <Grid item xs={6} sm={6}>
+                    <TextField
+                      required
+                      // id={`asset${i}Lat`}
+                      name="latitude"
+                      value={asset.latitude}
+                      label="Latitude"
+                      fullWidth
+                    />
+                  </Grid>
+                  <Grid item xs={6} sm={6}>
+                    <TextField
+                      required
+                      // id={`asset${i}Long`}
+                      name="longtitude"
+                      value={asset.longtitude}
+                      label="Longtitude"
+                      fullWidth
+                    />
+                  </Grid>
+                </Grid>
+              </div>
+            )}
+
+            <Grid item xs={12} sm={12} display="flex" justifyContent="center" alignItems="center">
+              <IconButton component="span" color="primary" onClick={handleAddAsset}>
+                <Add />
+              </IconButton>
+            </Grid>
+
+            {/* <Grid item xs={6}>
               <FormControl variant="outlined" className={classes.formControl}>
                 <TextField
                   required
@@ -139,7 +202,7 @@ export const Dashboard = () => {
                   }}
                 />
               </FormControl>
-            </Grid>
+            </Grid> */}
 
             {/* <Grid item xs={12}>
               <TextField
