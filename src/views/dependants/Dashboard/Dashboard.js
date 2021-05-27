@@ -2,10 +2,9 @@ import React from 'react';
 import { Box, Container, TextField, Grid, Typography, Paper, FormControl, InputLabel, Select, MenuItem, IconButton, Button, makeStyles, createStyles } from '@material-ui/core';
 import Add from '@material-ui/icons/Add';
 import DeleteIcon from '@material-ui/icons/Delete';
+import Send from '@material-ui/icons/Send';
 import { LayoutConfig } from 'constants/index';
 import { v4 as uuidv4 } from 'uuid';
-// import { classes } from '../../../../node_modules/coa/coa';
-// import {StoryArAPI} from 'helpers';
 
 const useStyles = makeStyles(theme => createStyles({
   root: {
@@ -25,34 +24,87 @@ const useStyles = makeStyles(theme => createStyles({
 export const Dashboard = () => {
   const classes = useStyles();
 
-  const [aim, setAim] = React.useState(null);
+  // const [assetsToPost, setAssetsToPost] = React.useState([]);
+  const [title, setTitle] = React.useState("");
+  const [description, setDescription] = React.useState("");
+  const [aim, setAim] = React.useState("");
   const [assets, setAssets] = React.useState([
     {
       id: uuidv4(),
       type: "", 
-      assetDesc: "",
-      latitude: "",
-      longtitude: ""
+      assetDescription: "",
+      longtitude: "",
+      latitude: ""
     }
   ]);
 
-  const handleChange = (event) => {
+  const handleAimChange = (event) => {
     setAim(event.target.value);
   };
 
+  const handleTitleChange = (event) => {
+    setTitle(event.target.value);
+  };
+
+  const handleDescriptionChange = (event) => {
+    setDescription(event.target.value);
+  };
+
   const handleAddAsset = () => {
-    setAssets([...assets, { 
+    setAssets([...assets, {
+      id: uuidv4(),
       type: "", 
-      assetDesc: "",
-      latitude: "",
-      longtitude: "" }]);
+      assetDescription: "",
+      longtitude: "",
+      latitude: ""
+    }]);
   };
 
   const handleRemoveAsset = (id) => {
-    console.log({id});
     const values  = [...assets];
     values.splice(values.findIndex(value => value.id === id), 1);
     setAssets(values);
+  };
+
+  const handleChangeAsset = (id, event) => {
+    const newAssets = assets.map(i => {
+      if(id === i.id) {
+        i[event.target.name] = event.target.value;
+      }
+      return i;
+    });
+    
+    setAssets(newAssets);
+  };
+
+  // Reconstruct asset objects before include in payload
+  const prepareAssetsToPost = () => {
+    let assetsToPost = [];
+
+    assets.forEach(asset => {
+      assetsToPost = [...assetsToPost, {
+        assetType: asset.type,
+        coordinates: [parseFloat(asset.longtitude), parseFloat(asset.latitude)], //backend expects `coordinates` to be array of [long, lat]
+        assetDescription: asset.assetDescription
+      }];
+    });
+    
+    return assetsToPost;
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    const assetsToPost = prepareAssetsToPost();
+    
+    let payload = {
+      title,
+      description,
+      assets: assetsToPost,
+      aim
+    };
+
+    console.log({payload}); // TODO: POST payload to backend
   };
 
   return (<Box sx={LayoutConfig.defaultContainerSX}>
@@ -74,7 +126,7 @@ export const Dashboard = () => {
         <Typography variant="h4" gutterBottom>
           Add new story
         </Typography>
-        <form>
+        <form onSubmit={handleSubmit}>
           <Grid container spacing={3}>
 
             <Grid item xs={12} sm={9}>
@@ -84,6 +136,7 @@ export const Dashboard = () => {
                 name="title"
                 label="Story title"
                 fullWidth
+                onChange={handleTitleChange}
               />
             </Grid>
 
@@ -93,14 +146,10 @@ export const Dashboard = () => {
                 <Select
                   required
                   labelId="aim"
-                  id="aim-select-outlined"
                   value={aim}
-                  onChange={handleChange}
+                  onChange={handleAimChange}
                   label="Aim"
                 >
-                  <MenuItem value="">
-                    <em>None</em>
-                  </MenuItem>
                   <MenuItem value="FindAll"> Find All </MenuItem>
                   <MenuItem value="FindOne"> Find One </MenuItem>
                   <MenuItem value="FindAny"> Find Any </MenuItem>
@@ -113,11 +162,13 @@ export const Dashboard = () => {
                 required
                 id="outlined-multiline-static"
                 label="Description"
+                name="description"
                 multiline
                 rows={2}
                 fullWidth
                 placeholder="A brief description of the story"
                 variant="outlined"
+                onChange={handleDescriptionChange}
               />
             </Grid>
 
@@ -149,31 +200,41 @@ export const Dashboard = () => {
                   <Grid item xs={12}>
                     <TextField
                       required
-                      // id={`assetType${i}`}
-                      name="assetType"
+                      name="type"
                       label="Asset Type"
                       value={asset.type}
                       fullWidth
+                      onChange={event => handleChangeAsset(asset.id, event)}
                     />
                   </Grid>
-                  <Grid item xs={6} sm={6}>
+                  <Grid item xs={12}>
                     <TextField
                       required
-                      // id={`asset${i}Lat`}
-                      name="latitude"
-                      value={asset.latitude}
-                      label="Latitude"
+                      name="assetDescription"
+                      label="Asset Description"
+                      value={asset.assetDescription}
                       fullWidth
+                      onChange={event => handleChangeAsset(asset.id, event)}
                     />
                   </Grid>
                   <Grid item xs={6} sm={6}>
                     <TextField
                       required
-                      // id={`asset${i}Long`}
                       name="longtitude"
                       value={asset.longtitude}
                       label="Longtitude"
                       fullWidth
+                      onChange={event => handleChangeAsset(asset.id, event)}
+                    />
+                  </Grid>
+                  <Grid item xs={6} sm={6}>
+                    <TextField
+                      required
+                      name="latitude"
+                      value={asset.latitude}
+                      label="Latitude"
+                      fullWidth
+                      onChange={event => handleChangeAsset(asset.id, event)}
                     />
                   </Grid>
                 </Grid>
@@ -186,69 +247,17 @@ export const Dashboard = () => {
               </IconButton>
             </Grid>
 
-            {/* <Grid item xs={6}>
-              <FormControl variant="outlined" className={classes.formControl}>
-                <TextField
-                  required
-                  id="assetAmountInput"
-                  name="assetAmountInput"
-                  label="No. of assets"
-                  xs = {6}
-                  type="number"
-                  InputProps={{
-                    inputProps: { 
-                      max: 5, min: 1
-                    }
-                  }}
-                />
-              </FormControl>
-            </Grid> */}
-
-            {/* <Grid item xs={12}>
-              <TextField
-                id="address2"
-                name="address2"
-                label="Address line 2"
-                fullWidth
-                autoComplete="shipping address-line2"
-              />
+            <Grid item xs={12} sm={12} display="flex" justifyContent="center" alignItems="center">
+              <Button
+                variant="contained"
+                color="primary"
+                endIcon={<Send/>}
+                type="submit"
+              >
+                Send
+              </Button>
             </Grid>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                required
-                id="city"
-                name="city"
-                label="City"
-                fullWidth
-                autoComplete="shipping address-level2"
-              />
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <TextField id="state" name="state" label="State/Province/Region" fullWidth />
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                required
-                id="zip"
-                name="zip"
-                label="Zip / Postal code"
-                fullWidth
-                autoComplete="shipping postal-code"
-              />
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                required
-                id="country"
-                name="country"
-                label="Country"
-                fullWidth
-                autoComplete="shipping country"
-              />
-            </Grid>
-            <Grid item xs={12}>
-              
-            </Grid> */}
+            
           </Grid>
         </form>
       </Paper>
