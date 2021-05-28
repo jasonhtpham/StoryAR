@@ -5,6 +5,9 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import Send from '@material-ui/icons/Send';
 import { LayoutConfig } from 'constants/index';
 import { v4 as uuidv4 } from 'uuid';
+import {StoryArAPI} from 'helpers';
+// import {EnhancedModal} from 'components';
+
 
 const useStyles = makeStyles(theme => createStyles({
   root: {
@@ -92,7 +95,7 @@ export const Dashboard = () => {
     return assetsToPost;
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
     const assetsToPost = prepareAssetsToPost();
@@ -104,7 +107,11 @@ export const Dashboard = () => {
       aim
     };
 
-    console.log({payload}); // TODO: POST payload to backend
+    console.log({payload});
+
+    const result = await StoryArAPI.addStory(payload);
+
+    if (result.err) return result.err;
   };
 
   return (<Box sx={LayoutConfig.defaultContainerSX}>

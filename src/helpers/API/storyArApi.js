@@ -14,6 +14,12 @@ class StoryArAPI {
       return generateSuccess(response.data);
     }).catch(error => errorHelper(error, "getAllStory"));
   }
+
+  addStory(payload) {
+    return axiosInstance.post('storyar/addStory', payload).then(response => {
+      return generateSuccess(response.data);
+    }).catch(error => errorHelper(error, "addStory"));
+  }
 }
 
 const instance = new StoryArAPI();
