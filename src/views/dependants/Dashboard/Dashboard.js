@@ -6,7 +6,7 @@ import Send from '@material-ui/icons/Send';
 import { LayoutConfig } from 'constants/index';
 import { v4 as uuidv4 } from 'uuid';
 import {StoryArAPI} from 'helpers';
-// import {EnhancedModal} from 'components';
+import {EnhancedModal} from 'components';
 
 
 const useStyles = makeStyles(theme => createStyles({
@@ -27,7 +27,9 @@ const useStyles = makeStyles(theme => createStyles({
 export const Dashboard = () => {
   const classes = useStyles();
 
-  // const [assetsToPost, setAssetsToPost] = React.useState([]);
+  const [modalTitle, setModalTitle] = React.useState('');
+  const [modalContent, setModalContent] = React.useState('');
+  const [modalStatus, setModalStatus] = React.useState(false);
   const [title, setTitle] = React.useState("");
   const [description, setDescription] = React.useState("");
   const [aim, setAim] = React.useState("");
@@ -107,11 +109,16 @@ export const Dashboard = () => {
       aim
     };
 
-    console.log({payload});
+    // console.log({payload});
 
     const result = await StoryArAPI.addStory(payload);
 
     if (result.err) return result.err;
+
+    setModalTitle(`${result.data.data.title} has been created sucessfully`);
+    setModalContent(`Story description: ${result.data.data.description}. \n Created on ${result.data.data.creationDate}.`);
+    setModalStatus(true);
+
   };
 
   return (<Box sx={LayoutConfig.defaultContainerSX}>
@@ -129,6 +136,18 @@ export const Dashboard = () => {
         }
       }}
     >
+
+      <EnhancedModal 
+        isOpen = {modalStatus}
+        dialogTitle={modalTitle}
+        dialogContent={modalContent}
+        onClose={() => { setModalStatus(false); }}
+        options={{
+          closeButtonName: "Done",
+          disableSubmit: true
+        }}
+      />
+
       <Paper className={classes.root}>
         <Typography variant="h4" gutterBottom>
           Add new story
