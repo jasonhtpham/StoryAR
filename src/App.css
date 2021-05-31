@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css?family=Cardo');
+
+.slider {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image {
+  width: 1000px;
+  height: 600px;
+  border-radius: 10px;
+}
+
+.right-arrow {
+  position: absolute;
+  top: 50%;
+  right: 32px;
+  font-size: 3rem;
+  color: black;
+  z-index: 10;
+  cursor: pointer;
+  user-select: none;
+}
+
+.left-arrow {
+  position: absolute;
+  top: 50%;
+  left: 32px;
+  font-size: 3rem;
+  color: black;
+  z-index: 10;
+  cursor: pointer;
+  user-select: none;
+}
+
+.slide {
+  opacity: 0;
+  transition-duration: 1s ease;
+}
+
+.slide.active {
+  opacity: 1;
+  transition-duration: 1s;
+  transform: scale(1.08);
+}
+
+header {
+  margin-left: 20px;
+  min-height: 300px;
+}
+
+body {
+  margin: 0;
+  font-family: 'Cardo', sans-serif; /*-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif; */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: antiquewhite;
+  text-align: center;
+  vertical-align: middle;
+  font-size: large;
+  height: 300px;
+  padding: 1.9%;
+
+}
+
+footer {
+  color: rgb(17, 12, 34);
+  border: black;
+}
+
+button {
+  border: black;
+  color: white;
+  padding: 5px 5px;
+  text-align: left;
+  display:inline;
+  font-size: 16px;
+  cursor: pointer;
+  width: 30%;
+  background-color: rebeccapurple;
+  top: 50px;
+  min-height: 100px;
+  text-align: center;
+
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+  text-align: center;
+}
+
+
