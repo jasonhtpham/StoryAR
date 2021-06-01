@@ -47,7 +47,7 @@ export const Home = () => {
       }}
     >
       {stories.map(story => (
-        <Card className={classes.root} key={story._id} onClick={() => console.log(story._id)}>
+        <Card className={classes.root} key={story._id} onClick={() => console.log(story._id)} >
           <CardActionArea>
             <CardMedia
               className={classes.media}
