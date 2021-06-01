@@ -47,7 +47,7 @@ export const Home = () => {
       }}
     >
       {stories.map(story => (
-        <Card className={classes.root} key={story._id}>
+        <Card className={classes.root} key={story._id} onClick={() => console.log(story._id)}>
           <CardActionArea>
             <CardMedia
               className={classes.media}
@@ -55,6 +55,7 @@ export const Home = () => {
               title="Contemplative Reptile"
             />
             <CardContent>
+            
               <Typography gutterBottom variant="h5" component="h2">
                 {story.title}
               </Typography>
