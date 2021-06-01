@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, CardContent, CardMedia, CardActionArea, Typography, Box, Container, makeStyles, createStyles } from '@material-ui/core';
+import { Card, CardContent, CardActionArea, Typography, Box, Container, makeStyles, createStyles } from '@material-ui/core';
 import { LayoutConfig } from 'constants/index';
 import {StoryArAPI} from 'helpers';
 
@@ -8,6 +8,14 @@ const useStyles = makeStyles(theme => createStyles({
     padding: theme.spacing(2),
     margin: theme.spacing(2),
     width: "50%"
+  },
+  card: {
+    margin: theme.spacing(2),
+    width: "50%"
+  },
+  cardContent: {
+    padding: theme.spacing(2),
+    margin: theme.spacing(2),
   }
 }));
 
@@ -31,6 +39,10 @@ export const Home = () => {
     fetchData();
   },[fetchData]);
 
+  const handleStoryClick = (id) => {
+    console.log(id);
+  };
+
   return (<Box sx={LayoutConfig.defaultContainerSX}>
     <Container
       style={{
@@ -47,18 +59,19 @@ export const Home = () => {
       }}
     >
       {stories.map(story => (
-        <Card className={classes.root} key={story._id}>
-          <CardActionArea>
-            <CardMedia
+        <Card className={classes.card} key={story._id}>
+          <CardActionArea onClick={() => handleStoryClick(story._id)}>
+            {/* <CardMedia
               className={classes.media}
               image="/static/images/cards/contemplative-reptile.jpg" // TO BE: Story avatar
               title="Contemplative Reptile"
-            />
-            <CardContent>
+            /> */}
+            <CardContent className={classes.cardContent}>
               <Typography gutterBottom variant="h5" component="h2">
                 {story.title}
               </Typography>
-              <Typography variant="body2" color="textSecondary" component="p">
+              <Typography variant="body2" color="textSecondary" component="p"> 
+                {/* TO BE: story description */}
                 TO BE: story description
               </Typography>
             </CardContent>
