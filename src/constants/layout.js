@@ -21,15 +21,15 @@ class Layout {
         "isFavourite": true,
         "subMenuItems": []
       },
-      {
-        "name": "Example",
-        "type": "button",
-        "icon": "bytesize:code",
-        "controller": "/examples",
-        "customTitle": "Example Code File",
-        "isFavourite": true,
-        "subMenuItems": []
-      },
+      // {
+      //   "name": "Example",
+      //   "type": "button",
+      //   "icon": "bytesize:code",
+      //   "controller": "/examples",
+      //   "customTitle": "Example Code File",
+      //   "isFavourite": true,
+      //   "subMenuItems": []
+      // },
       {
         "name": "Logout",
         "type": "logout",

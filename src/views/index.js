@@ -7,12 +7,12 @@ import { FourOFour } from './common/FourOFour/FourOFour';
 import { Register } from './common/Register/Register';
 import { Home } from './dependants/Home/Home';
 import { MobileMenu } from './dependants/mobileMenu/mobileMenu';
-import { Example } from './dependants/Example/Example';
+import { Story } from './dependants/Story/Story';
 import { Dashboard } from './dependants/Dashboard/Dashboard';
 
 export {
   Dashboard,
-  Example,
+  Story,
   Login,
   Register,
   Home,

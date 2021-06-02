@@ -1,21 +1,33 @@
 import React from 'react';
-import { Card, CardContent, CardActionArea, Typography, Box, Container, makeStyles, createStyles } from '@material-ui/core';
+import { Link } from 'react-router-dom';
+import { Card, CardContent, CardActionArea, CardActions, Button, Typography, Box, Container, makeStyles, createStyles } from '@material-ui/core';
 import { LayoutConfig } from 'constants/index';
-import {StoryArAPI} from 'helpers';
+import { StoryArAPI } from 'helpers';
 
 const useStyles = makeStyles(theme => createStyles({
   root: {
+    display: 'flex',
     padding: theme.spacing(2),
     margin: theme.spacing(2),
     width: "50%"
   },
   card: {
+    display: 'flex',
     margin: theme.spacing(2),
     width: "50%"
   },
   cardContent: {
     padding: theme.spacing(2),
     margin: theme.spacing(2),
+  },
+  playButton: {
+    position: 'relative',
+    display: 'flex',
+    alignItems: 'center',
+    textAlign:'center',
+    justifyContent: 'center',
+    backgroundColor: theme.palette.success.main,
+    color: theme.palette.text.primary
   }
 }));
 
@@ -39,10 +51,6 @@ export const Home = () => {
     fetchData();
   },[fetchData]);
 
-  const handleStoryClick = (id) => {
-    console.log(id);
-  };
-
   return (<Box sx={LayoutConfig.defaultContainerSX}>
     <Container
       style={{
@@ -60,7 +68,7 @@ export const Home = () => {
     >
       {stories.map(story => (
         <Card className={classes.card} key={story._id}>
-          <CardActionArea onClick={() => handleStoryClick(story._id)}>
+          <CardActionArea>
             {/* <CardMedia
               className={classes.media}
               image="/static/images/cards/contemplative-reptile.jpg" // TO BE: Story avatar
@@ -76,6 +84,13 @@ export const Home = () => {
               </Typography>
             </CardContent>
           </CardActionArea>
+          <CardActions>
+            <Link to={`/home/${story._id}`} style={{ textDecoration: 'none' }}>
+              <Button className={classes.playButton} size="medium" color="primary">
+                  Play
+              </Button>
+            </Link>
+          </CardActions>
         </Card>
       ))}
       
