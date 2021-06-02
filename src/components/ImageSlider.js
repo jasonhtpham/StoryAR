@@ -47,8 +47,10 @@ const ImageSlider = ({ slides }) => {
           })}
         </section>
         <br></br>
+        <a href="https://reactjs.org/"><button className="Start">Create Account</button></a>
         <br></br>
-        <a href="https://reactjs.org/"><button className="Start">Create Account and Play</button></a>
+        <br></br>
+        <a href="https://reactjs.org/"><button className="Start">Play Game</button></a>
         <br></br>
         <br></br>
 
@@ -56,6 +58,7 @@ const ImageSlider = ({ slides }) => {
         <h3>More Information</h3>
             <a href="https://www.w3schools.com/" target="_blank">W3Schools!</a> <br></br>
             <a href="https://www.youtube.com/watch?v=H7ZHemE2nRs" target="_blank">How Augmented Reality Works</a> <br></br>
+            <a href="https://materializecss.com/text-inputs.html" target="_blank">Materialize</a> 
         </footer>
             <br></br>
         </div>
