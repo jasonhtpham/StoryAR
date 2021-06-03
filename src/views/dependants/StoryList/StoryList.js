@@ -31,7 +31,7 @@ const useStyles = makeStyles(theme => createStyles({
   }
 }));
 
-export const Home = () => {
+export const StoryList = () => {
   const classes = useStyles();
 
   // Declare data hook
@@ -85,7 +85,7 @@ export const Home = () => {
             </CardContent>
           </CardActionArea>
           <CardActions>
-            <Link to={`/home/${story._id}`} style={{ textDecoration: 'none' }}>
+            <Link to={`/story/${story._id}`} style={{ textDecoration: 'none' }}>
               <Button className={classes.playButton} size="medium" color="primary">
                   Play
               </Button>

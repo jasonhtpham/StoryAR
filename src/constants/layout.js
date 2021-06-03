@@ -1,13 +1,13 @@
 
 class Layout {
   constructor() {
-    this.landingPage = "/home";
+    this.landingPage = "/story";
     this.menuItems = [
       {
-        "name": "Home",
+        "name": "Story",
         "type": "button",
-        "icon": "ant-design:home-filled",
-        "controller": "/home",
+        "icon": "ant-design:star-filled",
+        "controller": "/story",
         "customTitle": "Welcome to Boiler Plate",
         "isFavourite": true,
         "subMenuItems": []
