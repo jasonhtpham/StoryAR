@@ -1,7 +1,9 @@
 import React from 'react';
-import { Card, CardContent, CardMedia, CardActionArea, Typography, Box, Container, makeStyles, createStyles } from '@material-ui/core';
+import { Card, CardContent, CardMedia, CardActionArea, Typography, Box, Container, makeStyles, createStyles, Button, CardActions } from '@material-ui/core';
 import { LayoutConfig } from 'constants/index';
 import {StoryArAPI} from 'helpers';
+import {  Link } from "react-router-dom";
+
 
 const useStyles = makeStyles(theme => createStyles({
   root: {
@@ -46,8 +48,9 @@ export const Home = () => {
         }
       }}
     >
+    
       {stories.map(story => (
-        <Card className={classes.root} key={story._id} onClick={() => console.log(story._id)} >
+        <Card className={classes.root} key={story._id} >
           <CardActionArea>
             <CardMedia
               className={classes.media}
@@ -62,8 +65,14 @@ export const Home = () => {
               <Typography variant="body2" color="textSecondary" component="p">
                 TO BE: story description
               </Typography>
+
             </CardContent>
           </CardActionArea>
+          <CardActions>
+            <Link to ={`/home/${story._id}`}>
+              <Button size="medium">Play</Button>
+            </Link>
+          </CardActions>
         </Card>
       ))}
       

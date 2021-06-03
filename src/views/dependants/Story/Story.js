@@ -9,7 +9,7 @@ const useStyles = makeStyles(theme => createStyles({
   }
 }));
 
-export const Example = () => {
+export const Story = () => {
   const classes = useStyles();
   let [location] = useGeoLocation();
   let content = (
