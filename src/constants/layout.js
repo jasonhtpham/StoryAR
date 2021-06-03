@@ -8,7 +8,7 @@ class Layout {
         "type": "button",
         "icon": "ant-design:star-filled",
         "controller": "/story",
-        "customTitle": "Welcome to Boiler Plate",
+        "customTitle": "Story AR Game",
         "isFavourite": true,
         "subMenuItems": []
       },

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Card, CardContent, CardActionArea, CardActions, Button, Typography, Box, Container, makeStyles, createStyles } from '@material-ui/core';
+import { Card, CardContent, CardActionArea, CardActions, Button, Typography, Box, Container, Grid, makeStyles, createStyles } from '@material-ui/core';
 import { LayoutConfig } from 'constants/index';
 import { StoryArAPI } from 'helpers';
 
@@ -12,7 +12,6 @@ const useStyles = makeStyles(theme => createStyles({
     width: "50%"
   },
   card: {
-    display: 'flex',
     margin: theme.spacing(2),
     width: "50%"
   },
@@ -25,9 +24,7 @@ const useStyles = makeStyles(theme => createStyles({
     display: 'flex',
     alignItems: 'center',
     textAlign:'center',
-    justifyContent: 'center',
-    backgroundColor: theme.palette.success.main,
-    color: theme.palette.text.primary
+    justifyContent: 'center'
   }
 }));
 
@@ -85,11 +82,26 @@ export const StoryList = () => {
             </CardContent>
           </CardActionArea>
           <CardActions>
-            <Link to={`/story/${story._id}`} style={{ textDecoration: 'none' }}>
-              <Button className={classes.playButton} size="medium" color="primary">
-                  Play
-              </Button>
-            </Link>
+            <Grid container>
+              <Grid item xs={12} sm={6}>
+                <Link to={`/story/ar/${story._id}`} style={{ textDecoration: 'none' }} className={classes.playButton}>
+                  <Button size="medium" color="primary">
+                      Play in AR
+                  </Button>
+                </Link>
+              </Grid>
+
+              <Grid item xs={12} sm={6}>
+                <Link to={`/story/map/${story._id}`} style={{ textDecoration: 'none' }} className={classes.playButton}>
+                  <Button size="medium" color="primary">
+                      Play in Map
+                  </Button>
+                </Link>
+              </Grid>
+
+            </Grid>
+            
+            
           </CardActions>
         </Card>
       ))}
