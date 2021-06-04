@@ -3,14 +3,9 @@ version: 0.2
 phases:
   install:
     commands:
-      - echo Installing nvm...
-      - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
-      - export NVM_DIR="$HOME/.nvm" [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
-      - nvm --version
-      - echo Installing Node 14...
-      # - curl -fsSL https://deb.nodesource.com/setup_14.x | bash -
-      # - apt install -y nodejs
-      - nvm install 14.16.1
+      - echo Install Node 14...
+      - curl -fsSL https://deb.nodesource.com/setup_14.x | bash -
+      - apt install -y nodejs
       - echo Install latest npm...
       - npm install -g npm@latest
       - apt install build-essential
