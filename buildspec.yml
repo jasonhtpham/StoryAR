@@ -7,7 +7,7 @@ phases:
       - curl -fsSL https://deb.nodesource.com/setup_14.x | bash -
       - apt install -y nodejs
       - echo Install latest npm...
-      - npm install -g npm@latest
+      - npm install -g npm@7.5.4
       - apt install build-essential
       - echo Nodejs version...
       - node --version
