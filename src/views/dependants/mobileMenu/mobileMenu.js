@@ -1,5 +1,7 @@
 import React, { useContext } from 'react';
-import { List, Icon, ListItem, ListItemText, ListSubheader, Divider, makeStyles, Typography, useMediaQuery } from '@material-ui/core';
+import { List, Icon, ListItem, ListItemText, ListSubheader, Divider, Typography, useMediaQuery } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
+
 import { Link, Redirect } from 'react-router-dom';
 import { API } from 'helpers';
 import { LayoutContext } from 'contexts';

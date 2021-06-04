@@ -1,5 +1,6 @@
 import React from 'react';
-import { Card, CardContent, CardMedia, CardActionArea, Typography, Box, Container, makeStyles, createStyles } from '@material-ui/core';
+import { Card, CardContent, CardMedia, CardActionArea, Typography, Box, Container } from '@material-ui/core';
+import { makeStyles, createStyles } from '@material-ui/core/styles';
 import { LayoutConfig } from 'constants/index';
 import {StoryArAPI} from 'helpers';
 

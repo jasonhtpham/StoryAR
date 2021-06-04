@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { LoginContext } from 'contexts';
-import { FormControlLabel, Switch, makeStyles, Typography } from '@material-ui/core';
+import { FormControlLabel, Switch, Typography } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
 import { DeveloperConfig } from 'constants/index';
 
 const useStyles = makeStyles(theme => ({

@@ -1,5 +1,6 @@
 import React from 'react';
-import { Grid, Typography, Button, Card, CardContent, CardActions, makeStyles, createStyles, Box } from '@material-ui/core';
+import { Grid, Typography, Button, Card, CardContent, CardActions, Box } from '@material-ui/core';
+import { makeStyles, createStyles } from '@material-ui/core/styles';
 import { useGeoLocation } from 'helpers';
 import { LayoutConfig } from 'constants/index';
 
