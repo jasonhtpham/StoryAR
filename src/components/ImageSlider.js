@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { SliderData } from './SliderData';
 import {FaArrowAltCircleRight, FaArrowAltCircleLeft} from 'react-icons/fa'
+import ReactDOM from "react-dom";
+import { Link } from "react-router-dom";
 
 const ImageSlider = ({ slides }) => {
     const [current, setCurrent] = useState(0);
@@ -16,6 +18,9 @@ const ImageSlider = ({ slides }) => {
 
     console.log(current);
 
+    const handleClick = () => {
+
+    }
 
     if(!Array.isArray(slides) || slides.length <= 0) {
         return null;
@@ -47,10 +52,12 @@ const ImageSlider = ({ slides }) => {
           })}
         </section>
         <br></br>
-        <a href="https://reactjs.org/"><button className="Start">Create Account</button></a>
+        <Link to="/register">
+            <button className="Start">Create Account</button>
+        </Link>
         <br></br>
         <br></br>
-        <a href="https://reactjs.org/"><button className="Start">Play Game</button></a>
+            <a href="https://reactjs.org/"><button className="Start">Play Game</button></a>
         <br></br>
         <br></br>
 
