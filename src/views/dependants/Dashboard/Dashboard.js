@@ -13,6 +13,7 @@ import {EnhancedModal} from 'components';
 const useStyles = makeStyles(theme => createStyles({
   root: {
     padding: theme.spacing(2),
+    margin: theme.spacing(2),
   },
   formControl: {
     minWidth: 120,
