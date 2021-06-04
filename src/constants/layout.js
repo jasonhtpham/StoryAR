@@ -6,7 +6,7 @@ class Layout {
       {
         "name": "Home",
         "type": "button",
-        "icon": "ant-design:home-filled",
+        "icon": "ant-design:star-filled",
         "controller": "/home",
         "customTitle": "Welcome to Boiler Plate",
         "isFavourite": true,
