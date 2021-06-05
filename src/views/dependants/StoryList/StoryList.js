@@ -1,12 +1,7 @@
 import React from 'react';
-<<<<<<< HEAD:src/views/dependants/Home/Home.js
-import { Card, CardContent, CardMedia, CardActionArea, Typography, Box, Container } from '@material-ui/core';
-import { makeStyles, createStyles } from '@material-ui/core/styles';
-=======
 import { Link } from 'react-router-dom';
 import { Card, CardContent, CardActionArea, CardActions, Button, Typography, Box, Container, Grid } from '@material-ui/core';
 import { makeStyles, createStyles } from '@material-ui/styles';
->>>>>>> jason-storybyid:src/views/dependants/StoryList/StoryList.js
 import { LayoutConfig } from 'constants/index';
 import { StoryArAPI } from 'helpers';
 

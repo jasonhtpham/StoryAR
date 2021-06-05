@@ -1,11 +1,7 @@
 import React, { useState, useContext } from 'react';
 import clsx from 'clsx';
 import { AppBar, Toolbar, Typography, Drawer, Divider, IconButton, useMediaQuery } from '@material-ui/core';
-<<<<<<< HEAD
-import { makeStyles, createStyles } from '@material-ui/core/styles';
-=======
 import { makeStyles, createStyles } from '@material-ui/styles';
->>>>>>> jason-storybyid
 import { LayoutContext } from 'contexts';
 import { SideMenuItems } from './SideMenuItems';
 import MenuIcon from '@material-ui/icons/Menu';

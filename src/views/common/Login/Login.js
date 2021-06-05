@@ -3,11 +3,7 @@
  ***/
 import React, { useState, useContext, useCallback } from 'react';
 import { Typography, Box, Container, Card, CardContent, Divider, Link } from '@material-ui/core';
-<<<<<<< HEAD
-import { makeStyles, createStyles } from '@material-ui/core/styles';
-=======
 import { makeStyles, createStyles } from '@material-ui/styles';
->>>>>>> jason-storybyid
 import { LoginContext, DeviceInfoContext } from 'contexts';
 import { LoginForm, SsoLogin } from 'components';
 import { API } from 'helpers';

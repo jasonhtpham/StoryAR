@@ -5,13 +5,8 @@
 
 import React, { useState, useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-<<<<<<< HEAD
-import { BottomNavigation, BottomNavigationAction, Paper, Icon as ParentIcon } from '@material-ui/core';
-import { makeStyles, createStyles } from '@material-ui/core/styles';
-=======
 import { BottomNavigation, BottomNavigationAction, Paper, createStyles, Icon as ParentIcon } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
->>>>>>> jason-storybyid
 import { API } from 'helpers';
 import { LayoutContext } from 'contexts';
 import { InlineIcon } from '@iconify/react-with-api';
