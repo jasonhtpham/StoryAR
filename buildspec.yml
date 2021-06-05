@@ -9,10 +9,6 @@ phases:
       - echo Install latest npm...
       - npm install -g npm@7.5.4
       - apt install build-essential
-      - echo Nodejs version...
-      - node --version
-      - echo npm version... 
-      - npm --version
 
   pre_build:
     commands:
