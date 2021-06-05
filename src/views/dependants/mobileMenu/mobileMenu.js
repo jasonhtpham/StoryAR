@@ -1,7 +1,11 @@
 import React, { useContext } from 'react';
 import { List, Icon, ListItem, ListItemText, ListSubheader, Divider, Typography, useMediaQuery } from '@material-ui/core';
+<<<<<<< HEAD
 import { makeStyles } from '@material-ui/core/styles';
 
+=======
+import { makeStyles } from '@material-ui/styles';
+>>>>>>> jason-storybyid
 import { Link, Redirect } from 'react-router-dom';
 import { API } from 'helpers';
 import { LayoutContext } from 'contexts';

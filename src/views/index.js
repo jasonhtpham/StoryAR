@@ -5,17 +5,19 @@ import { Login } from './common/Login/Login';
 import { AuthCallback } from './common/Login/AuthCallback';
 import { FourOFour } from './common/FourOFour/FourOFour';
 import { Register } from './common/Register/Register';
-import { Home } from './dependants/Home/Home';
 import { MobileMenu } from './dependants/mobileMenu/mobileMenu';
-import { Example } from './dependants/Example/Example';
+import { StoryList } from './dependants/StoryList/StoryList';
 import { Dashboard } from './dependants/Dashboard/Dashboard';
+import { StoryAr } from './dependants/StoryAr/StoryAr';
+import { StoryMap } from './dependants/StoryMap/StoryMap';
 
 export {
   Dashboard,
-  Example,
+  StoryAr,
+  StoryMap,
   Login,
   Register,
-  Home,
+  StoryList,
   MobileMenu,
   FourOFour,
   AuthCallback

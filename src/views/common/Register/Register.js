@@ -3,7 +3,11 @@
  ***/
 import React, { useState } from 'react';
 import { TextField, Typography, Button, Box, Divider, Container, Card, CardContent, Link } from '@material-ui/core';
+<<<<<<< HEAD
 import { makeStyles, createStyles } from '@material-ui/core/styles';
+=======
+import { makeStyles, createStyles } from '@material-ui/styles';
+>>>>>>> jason-storybyid
 import { notify } from 'components';
 import { Link as RouterLink } from 'react-router-dom';
 

@@ -1,14 +1,14 @@
 
 class Layout {
   constructor() {
-    this.landingPage = "/home";
+    this.landingPage = "/story";
     this.menuItems = [
       {
-        "name": "Home",
+        "name": "Story",
         "type": "button",
         "icon": "ant-design:star-filled",
-        "controller": "/home",
-        "customTitle": "Welcome to Boiler Plate",
+        "controller": "/story",
+        "customTitle": "Story AR Game",
         "isFavourite": true,
         "subMenuItems": []
       },
@@ -21,15 +21,15 @@ class Layout {
         "isFavourite": true,
         "subMenuItems": []
       },
-      {
-        "name": "Example",
-        "type": "button",
-        "icon": "bytesize:code",
-        "controller": "/examples",
-        "customTitle": "Example Code File",
-        "isFavourite": true,
-        "subMenuItems": []
-      },
+      // {
+      //   "name": "Example",
+      //   "type": "button",
+      //   "icon": "bytesize:code",
+      //   "controller": "/examples",
+      //   "customTitle": "Example Code File",
+      //   "isFavourite": true,
+      //   "subMenuItems": []
+      // },
       {
         "name": "Logout",
         "type": "logout",

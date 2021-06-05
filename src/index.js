@@ -3,16 +3,16 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter } from 'react-router-dom';
-import {StylesProvider} from '@material-ui/core/styles';
+import {StyledEngineProvider} from '@material-ui/core/styles';
 
 ReactDOM.render(
   //uses the HTML5 history API (pushState, replaceState and the popstate event) to keep your UI in sync with the URL.
   <StrictMode>
-    <StylesProvider injectFirst>
+    <StyledEngineProvider injectFirst>
       <BrowserRouter>
         <App />
       </BrowserRouter>
-    </StylesProvider >
+    </StyledEngineProvider >
   </StrictMode>
   , document.getElementById('root'));
 

@@ -1,6 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+<<<<<<< HEAD
 import { makeStyles } from '@material-ui/core/styles';
+=======
+import { makeStyles } from '@material-ui/styles';
+>>>>>>> jason-storybyid
 const useStyles = makeStyles(() => ({
   content: {
     display: 'contents'

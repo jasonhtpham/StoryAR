@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { SwipeableDrawer, Typography } from '@material-ui/core';
+<<<<<<< HEAD
 import { makeStyles } from '@material-ui/core/styles';
+=======
+import { makeStyles } from '@material-ui/styles';
+>>>>>>> jason-storybyid
 
 export const EnhancedDrawer = (props) => {
   const [drawerHeight, setDrawerHeight] = useState('50vh');
