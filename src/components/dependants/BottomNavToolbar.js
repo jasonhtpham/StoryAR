@@ -5,7 +5,8 @@
 
 import React, { useState, useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { BottomNavigation, BottomNavigationAction, makeStyles, Paper, createStyles, Icon as ParentIcon } from '@material-ui/core';
+import { BottomNavigation, BottomNavigationAction, Paper, createStyles, Icon as ParentIcon } from '@material-ui/core';
+import { makeStyles } from '@material-ui/styles';
 import { API } from 'helpers';
 import { LayoutContext } from 'contexts';
 import { InlineIcon } from '@iconify/react-with-api';

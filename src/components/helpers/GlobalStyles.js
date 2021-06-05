@@ -1,11 +1,11 @@
-import { createStyles, makeStyles } from '@material-ui/core/styles';
+import { createStyles, makeStyles } from '@material-ui/styles';
 
 const useStyles = makeStyles(() => createStyles({
   '@global': {
     '*': {
       boxSizing: 'border-box',
       margin: 0,
-      padding: 0
+      padding: 0,
     },
     html: {
       '-webkit-font-smoothing': 'antialiased',

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Card, CardContent, CardActionArea, CardActions, Button, Typography, Box, Container, Grid, makeStyles, createStyles } from '@material-ui/core';
+import { Card, CardContent, CardActionArea, CardActions, Button, Typography, Box, Container, Grid } from '@material-ui/core';
+import { makeStyles, createStyles } from '@material-ui/styles';
 import { LayoutConfig } from 'constants/index';
 import { StoryArAPI } from 'helpers';
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams } from "react-router-dom";
-import { Grid, Typography, Button, Card, CardContent, CardActions, makeStyles, createStyles, Box } from '@material-ui/core';
+import { Grid, Typography, Button, Card, CardContent, CardActions, Box } from '@material-ui/core';
+import { makeStyles, createStyles } from '@material-ui/styles';
 import { LayoutConfig } from 'constants/index';
 import { StoryArAPI } from 'helpers';
 import { useGeoLocation } from 'helpers';

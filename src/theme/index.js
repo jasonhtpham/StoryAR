@@ -1,12 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import merge from 'lodash/merge';
-import { createTheme as createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
+import { createTheme as createMuiTheme, ThemeProvider as MuiThemeProvider, responsiveFontSizes } from '@material-ui/core/styles';
 import { THEMES } from '../constants/theme';
 import { lightShadows, darkShadows } from './shadows';
 import { LoadingScreen } from 'components/index';
 import { LayoutContext } from 'contexts/index';
-import { ThemeProvider as MuiThemeProvider } from '@material-ui/core/styles';
 
 const baseOptions = {
   direction: 'ltr',
@@ -233,8 +232,7 @@ export const createTheme = (config = {}) => {
 
   if (config.responsiveFontSizes) {
     theme = responsiveFontSizes(theme);
-  }
-
+  }  
   return theme;
 };
 
