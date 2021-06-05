@@ -20,6 +20,8 @@ phases:
       - npm run build
 artifacts:
   files:
-    - "**/*"
-  discard-paths: no
-  base-directory: build
+    - public/**/*
+    - src/**/*
+    - package.json
+    - appspec.yml
+    - scripts/**/*
