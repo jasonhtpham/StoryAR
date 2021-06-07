@@ -7,7 +7,7 @@ import { LoginContext } from 'contexts';
 import { DeveloperConfig } from 'constants/index';
 
 export const LoginForm = (props) => {
-  const { devMode, setAccessToken } = useContext(LoginContext);
+  const { devMode } = useContext(LoginContext);
 
   const formik = useFormik({
     initialValues:
@@ -37,12 +37,13 @@ export const LoginForm = (props) => {
           emailId: DeveloperConfig.devDetails.user,
           password: DeveloperConfig.devDetails.password
         };
-      const response = await props.login(values);
-      if (response.success) {
-        setAccessToken(response.accessToken);
+      try {
+        await props.login(values);
+      
         setStatus({ success: true });
         setSubmitting(false);
-      } else {
+      } catch (err) {
+        console.log("Login error: ", err);
         setStatus({ success: false });
         setSubmitting(false);
       }

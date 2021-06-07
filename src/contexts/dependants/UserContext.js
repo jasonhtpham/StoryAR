@@ -11,7 +11,7 @@ export const UserProfileProvider = ({ children }) => {
 
   useEffect(() => {
     if (accessToken) {
-      API.getUserProfileData(accessToken, (data) => {
+      return API.getUserProfileData(accessToken, (data) => {
         setProfile(data.customerData);
       });
     }

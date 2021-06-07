@@ -131,6 +131,32 @@ class API {
     });
   }
 
+  getAdditionalInfo (callback) {
+    axiosInstance.get(`/user/additionalInfo`, {
+      headers: {
+        authorization: "Bearer " + AccessToken,
+      }
+    })
+      .then(response => {
+        return performCallback(callback, response.data.data.info);
+      })
+      .catch(error => {
+        return errorHelper(error);
+      });
+  }
+
+  updateAdditionalInfo (data, callback) {
+    axiosInstance.put(`/user/additionalInfo`, data, {
+      headers: {
+        authorization: "Bearer " + AccessToken
+      }
+    }).then(response => {
+      performCallback(callback, response);
+    }).catch(error => {
+      return errorHelper(error);
+    });
+  }
+
 }
 const instance = new API();
 export default instance;

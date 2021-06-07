@@ -16,6 +16,7 @@ import { VideoCall } from './common/VideoCall';
 import { LoginForm } from './dependants/login/loginForm';
 import { GlobalStyles } from './helpers/GlobalStyles';
 import { SsoLogin } from './dependants/login/ssoLogin';
+import {ValidationModal} from 'components/dependants/ValidationModal';
 
 export {
   EnhancedNotification as Notification,
@@ -36,5 +37,6 @@ export {
   VideoCall,
   LoginForm,
   GlobalStyles,
-  SsoLogin
+  SsoLogin,
+  ValidationModal
 };
