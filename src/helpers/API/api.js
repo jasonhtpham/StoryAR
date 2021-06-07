@@ -1,6 +1,14 @@
 import { AccessToken, logout } from 'contexts/helpers';
 import { axiosInstance, errorHelper, generateSuccess } from './axiosInstance';
 
+const performCallback = (callback, data) => {
+  if (callback instanceof Function) {
+    if (data !== undefined)
+      return callback(data);
+    callback();
+  }
+};
+
 class API {
   displayAccessToken() {
     console.log(AccessToken);
@@ -12,10 +20,29 @@ class API {
    * @param {Object} loginDetails Login details for the user
    * @returns {Object} responseObject
    */
-  login(loginDetails) {
-    return axiosInstance.post('admin/login', loginDetails).then(response => {
-      return generateSuccess(response.data.data.accessToken);
-    }).catch(error => errorHelper(error, "login"));
+  // login(loginDetails) {
+  //   return axiosInstance.post('admin/login', loginDetails).then(response => {
+  //     return generateSuccess(response.data.data.accessToken);
+  //   }).catch(error => errorHelper(error, "login"));
+  // }
+  login (data, callback) {
+    axiosInstance.post('user/login', data)
+      .then(response => {
+        performCallback(callback, response.data.data);
+      })
+      .catch(error => {
+        return errorHelper(error);
+      });
+  }
+
+  register (data, callback) {
+    axiosInstance.post('user/register', data)
+      .then(response => {
+        performCallback(callback, response.data.data);
+      })
+      .catch(error => {
+        return errorHelper(error);
+      });
   }
 
   /**
@@ -63,6 +90,47 @@ class API {
       .then((response) => generateSuccess(response.data.data))
       .catch(error => errorHelper(error));
   }
+
+  getUserProfileData (accessToken, callback) {
+    axiosInstance.get(`/user/getProfile`, {
+      headers: {
+        authorization: "Bearer " + accessToken,
+      }
+    })
+      .then(response => {
+        return performCallback(callback, response.data.data);
+      })
+      .catch(error => {
+        return errorHelper(error);
+      });
+  }
+
+  getUserProfile (callback) {
+    axiosInstance.get(`/user/getProfile`, {
+      headers: {
+        authorization: "Bearer " + AccessToken,
+      }
+    })
+      .then(response => {
+        return performCallback(callback, response.data.data);
+      })
+      .catch(error => {
+        return errorHelper(error);
+      });
+  }
+
+  initialProfileSetup (payload, callback) {
+    axiosInstance.post(`/user/initialProfile`, payload, {
+      headers: {
+        authorization: "Bearer " + AccessToken
+      }
+    }).then(response => {
+      performCallback(callback, response);
+    }).catch(error => {
+      return errorHelper(error);
+    });
+  }
+
 }
 const instance = new API();
 export default instance;

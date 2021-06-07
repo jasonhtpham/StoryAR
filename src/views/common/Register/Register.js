@@ -1,11 +1,13 @@
 /***
  *  Created by Sanchit Dang
  ***/
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { TextField, Typography, Button, Box, Divider, Container, Card, CardContent, Link } from '@material-ui/core';
 import { makeStyles, createStyles } from '@material-ui/styles';
 import { notify } from 'components';
 import { Link as RouterLink } from 'react-router-dom';
+import { API } from 'helpers';
+import { DeviceInfoContext, UserProfileContext } from 'contexts';
 
 
 const useStyles = makeStyles(() => createStyles({
@@ -26,7 +28,30 @@ export const Register = () => {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
-  const register = () => {
+  const [phoneNumber, setPhoneNumber] = useState('');
+  const [countryCode, setCountryCode] = useState('');
+
+  const { deviceName, deviceUUID } = useContext(DeviceInfoContext);
+  const { setProfile } = useContext(UserProfileContext);
+
+  const register = async () => {
+    let payload = {
+      firstName,
+      lastName,
+      emailId,
+      phoneNumber,
+      countryCode,
+      password,
+      deviceData: {
+        deviceType: "WEB",
+        deviceName,
+        deviceUUID
+      }
+    };
+
+    await API.register(payload, (data) => {
+      setProfile(data.userDetails);
+    });
   };
   const validationCheck = () => {
     if (emailId.length < 0 || password.length < 0 || confirmPassword.length < 0 || firstName.length < 0 || lastName.length < 0
@@ -38,10 +63,23 @@ export const Register = () => {
     if (!emailPatternTest) {
       notify('Email not in proper format');
     }
+
+    let phonePattern = /^\d{9}$/;
+    let phonePatternTest = phonePattern.test(phoneNumber);
+    if (!phonePatternTest) {
+      notify('Phone not in proper format (should be 9 digits)');
+    }
+
+    let countryCodePattern = /^\+(\d{1}-)?(\d{1,3})$/;
+    let countryCodePatternTest = countryCodePattern.test(countryCode);
+    if (!countryCodePatternTest) {
+      notify('Phone country code not in proper format');
+    }
+
     if (password !== confirmPassword) {
       return notify("Passwords don't match.");
     }
-    if (emailPatternTest) {
+    if (emailPatternTest && phonePatternTest && countryCodePatternTest && (password === confirmPassword) ) {
       return register();
     }
   };
@@ -49,6 +87,8 @@ export const Register = () => {
     <TextField variant="outlined" margin="normal" required fullWidth id="firstName" label="First Name" name="firstName" autoComplete="email" onChange={e => setFirstName(e.target.value)} autoFocus />
     <TextField variant="outlined" margin="normal" required fullWidth id="lastName" label="Last Name" name="lastName" autoComplete="email" onChange={e => setLastName(e.target.value)} />
     <TextField variant="outlined" margin="normal" required fullWidth id="email" label="Email Address" name="email" autoComplete="email" onChange={e => setEmailId(e.target.value)} />
+    <TextField variant="outlined" margin="normal" required fullWidth id="phoneNumber" label="Phone Number" name="phoneNumber" onChange={e => setPhoneNumber(e.target.value)} />
+    <TextField variant="outlined" margin="normal" required fullWidth id="countryCode" label="Phone Country Code" name="countryCode" autoComplete="countryCode" onChange={e => setCountryCode(e.target.value)} />
     <TextField variant="outlined" margin="normal" required fullWidth name="password" label="Password" type="password" id="password" onChange={e => setPassword(e.target.value)} autoComplete="current-password" />
     <TextField variant="outlined" margin="normal" required fullWidth name="confirmPassword" label="Confirm Password" type="password" id="confirmPassword" onChange={e => setConfirmPassword(e.target.value)} autoComplete="current-password" />
     <Box sx={{ mt: 2 }}>

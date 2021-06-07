@@ -1,10 +1,10 @@
 /***
  *  Created by Sanchit Dang
  ***/
-import React, { useState, useContext, useCallback } from 'react';
+import React, { useState, useContext } from 'react';
 import { Typography, Box, Container, Card, CardContent, Divider, Link } from '@material-ui/core';
 import { makeStyles, createStyles } from '@material-ui/styles';
-import { LoginContext, DeviceInfoContext } from 'contexts';
+import { LoginContext, DeviceInfoContext, UserProfileContext } from 'contexts';
 import { LoginForm, SsoLogin } from 'components';
 import { API } from 'helpers';
 import { ConnectionConfig } from 'constants/index';
@@ -22,11 +22,13 @@ const useStyles = makeStyles(() => createStyles({
 export const Login = () => {
   const classes = useStyles();
   const [pageHeading] = useState('Login');
-  const { setAccessToken } = useContext(LoginContext);
+  const { setAccessToken, setLoginStatus } = useContext(LoginContext);
   const { deviceUUID, deviceName } = useContext(DeviceInfoContext);
+  const { setProfile } = useContext(UserProfileContext);
 
-  const performLogin = useCallback(async (loginValues) => {
+  const performLogin = (loginValues) => {
     if (ConnectionConfig.bypassBackend) {
+      setLoginStatus(true);
       setAccessToken('dummyToken');
     } else {
       let details = {
@@ -36,9 +38,17 @@ export const Login = () => {
           deviceUUID: deviceUUID
         }
       };
-      return API.login(details,);
+      return API.login(details, (data) => {
+        setProfile(data.userDetails);
+        setAccessToken(data.accessToken);
+        setLoginStatus(true);
+      });
     }
-  }, [setAccessToken, deviceUUID, deviceName]);
+  };
+
+  // useEffect(() => {
+  //   console.log(profile);
+  // },[profile]);
 
 
   let content = (
