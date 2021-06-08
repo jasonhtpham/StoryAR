@@ -24,7 +24,7 @@ class Layout {
       {
         "name": "Profile",
         "type": "button",
-        "icon": "bytesize:code",
+        "icon": "ant-design:profile-filled",
         "controller": "/profile",
         "customTitle": "Profile",
         "isFavourite": true,

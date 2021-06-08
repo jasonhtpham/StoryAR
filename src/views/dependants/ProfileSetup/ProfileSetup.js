@@ -2,10 +2,10 @@
  *  Created by Sanchit Dang
  ***/
 import React, { useState, useContext } from 'react';
-import { Typography, Box, Divider, Container, Card, CardContent, Link, TextField, Button, CardActionArea, Fab } from '@material-ui/core';
+import { Typography, Box, Container, Card, CardContent, TextField, Button, CardActionArea, Fab } from '@material-ui/core';
 import AddPhotoAlternateIcon from "@material-ui/icons/AddPhotoAlternate";
 import { makeStyles, createStyles } from '@material-ui/styles';
-import { Link as RouterLink, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { API } from 'helpers';
 import { UserProfileContext } from 'contexts';
  
@@ -155,15 +155,6 @@ export const ProfileSetup = withRouter(( {history} ) => {
               {imageUploaded ? renderImage : renderImageUpload}
               {form}
             </Box>
-            <Divider sx={{ my: 3 }} />
-            <Link
-              color="textSecondary"
-              component={RouterLink}
-              to="/login"
-              variant="body2"
-            >
-               Having an account
-            </Link>
           </CardContent>
         </Card>
       </Container>

@@ -5,7 +5,7 @@ import React, { useContext, useState } from 'react';
 import { TextField, Typography, Button, Box, Divider, Container, Card, CardContent, Link } from '@material-ui/core';
 import { makeStyles, createStyles } from '@material-ui/styles';
 import { notify } from 'components';
-import { Link as RouterLink } from 'react-router-dom';
+import { Link as RouterLink, withRouter } from 'react-router-dom';
 import { API } from 'helpers';
 import { DeviceInfoContext, UserProfileContext } from 'contexts';
 
@@ -20,7 +20,7 @@ const useStyles = makeStyles(() => createStyles({
 }));
 
 
-export const Register = () => {
+export const Register = withRouter(({history}) => {
   const classes = useStyles();
   const [pageHeading] = useState('Register');
   const [emailId, setEmailId] = useState('');
@@ -51,6 +51,8 @@ export const Register = () => {
 
     await API.register(payload, (data) => {
       setProfile(data.userDetails);
+      history.replace('/login');
+      notify("Account successfully created");
     });
   };
   const validationCheck = () => {
@@ -169,4 +171,4 @@ export const Register = () => {
 
   );
   return content;
-};
+});

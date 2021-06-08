@@ -74,8 +74,8 @@ export const ValidationModal = (props) => {
       <DialogTitle id="form-dialog-title">{_DialogTitle}</DialogTitle>
       <DialogContent>{_DialogContent}</DialogContent>
       <DialogActions>
-        {disableClose !== true && <Button variant="contained" style={{ backgroundColor: "#fdb594", color: "black" }} onClick={onClose} color={swapButtonColors ? 'primary' : 'secondary'}>{cancelButtonName}</Button>}
-        {disableSubmit !== true && <Button variant="contained" style={{ backgroundColor: "#c0e093", color: "black" }} onClick={onSubmit} color={swapButtonColors ? 'secondary' : 'primary'}>{submitButtonName}</Button>}
+        {disableClose !== true && <Button variant="contained"  onClick={onClose} color={swapButtonColors ? 'primary' : 'secondary'}>{cancelButtonName}</Button>}
+        {disableSubmit !== true && <Button variant="contained" onClick={onSubmit} color={swapButtonColors ? 'secondary' : 'primary'}>{submitButtonName}</Button>}
       </DialogActions>
     </Dialog>
   );
