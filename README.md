@@ -1,4 +1,4 @@
-# React frontend boilerplate
+# Story AR Front end
 
 In order to use the boilerplate you will need NodeJS to be installed on your system.
 
@@ -41,7 +41,7 @@ $ node -v
 
 $ npm -v
 ```
-## Setup React Frontend Boilerplate Application
+## Setup Story AR Application
 
 * Step1: Git clone the application
 
