@@ -37,11 +37,11 @@ import { useForm } from "react-hook-form";
             />
 
             <input
-                id="email"
+                id="feedback"
                 class="form-field"
                 type="text"
-                placeholder="Email"
-                name="email"
+                placeholder="feedback"
+                name="feedback"
             />
 
                         

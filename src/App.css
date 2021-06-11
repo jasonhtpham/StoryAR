@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Cardo');
 
+
 /* Media Queries: Tablet Landscape */
 @media screen and (max-width: 1060px) {
   #primary { width:67%; }
@@ -21,7 +22,7 @@
 }
 
 .image {
-  width: 1000px;
+  width: 800px;
   height: 600px;
   border-radius: 10px;
 }
@@ -96,11 +97,9 @@ footer {
   display:inline;
   font-size: 16px;
   text-align: left;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-card {
-  align-content: stretch;
-}
 
 button {
   border: black;

@@ -4,7 +4,9 @@ import { SliderData } from './Components/SliderData';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Form from './Register/Form';
 import Feedback from './Feedback/FeedbackForm';
+import Rocket from './Components/Rocket';
 import { Switch } from "react-router-dom";
+
 
 
 function App() {
@@ -19,7 +21,10 @@ function App() {
            <ImageSlider slides={SliderData} />
          </Route>
          <Route path='/feedback'>
-         <Feedback />
+            <Feedback />
+         </Route>
+         <Route path='/rocket'>
+           <Rocket />
          </Route>
      </Switch>
      </Router>

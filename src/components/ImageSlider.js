@@ -49,10 +49,13 @@ const ImageSlider = ({ slides }) => {
         <Link to="/register">
             <button>Create Account</button><span> </span>
         </Link>
-            <button href="https://reactjs.org/">Log In to Play</button>
+            <button href="https://www.youtube.com/channel/UCyZkZgcTMCvvrxSQF2wkoHA">Log In to Play</button>
             <span> </span>
         <Link to="/feedback"> 
           <button>Provide Feedback</button>
+        </Link>
+        <Link to="/rocket"> 
+          <button>Rocket Ship</button>
         </Link>
         <br></br>
         <br></br>
@@ -64,23 +67,14 @@ const ImageSlider = ({ slides }) => {
                 <h3 class="white-text">More Information and Links</h3>
               </div>
                 <ul>
-                  <li><a class="grey-text text-lighten-3" href="https://www.deakin.edu.au/study/find-a-course/information-technology" target="_blank">Information Technology at Deakin</a></li>
-                  <li><a class="grey-text text-lighten-3" href="https://www.deakin.edu.au/" target="_blank">Deakin University</a></li>
-                  <li><a class="grey-text text-lighten-3" href="https://www.youtube.com/watch?v=H7ZHemE2nRs&t=1s" target="_blank">How Augmented Reality Works</a></li>
+                  <li><a class="grey-text text-lighten-3" href="https://www.deakin.edu.au/study/find-a-course/information-technology">Information Technology at Deakin</a></li>
+                  <li><a class="grey-text text-lighten-3" href="https://www.deakin.edu.au/">Deakin University</a></li>
+                  <li><a class="grey-text text-lighten-3" href="https://www.youtube.com/watch?v=H7ZHemE2nRs&t=1s">How Augmented Reality Works</a></li>
                 </ul>
               </div>
             </div>
-
-            <div class="card">
-                <div class="card-image waves-effect waves-block waves-light">
-                    <img class="activator" src="rocket.jpg" height="500" width="600" />
-                </div>
-            </div>
-
-          <div class="footer-copyright">
-            <div class="container">
+          <div>
             © 2021 Copyright Text
-            </div>
           </div>
         </footer>
     
