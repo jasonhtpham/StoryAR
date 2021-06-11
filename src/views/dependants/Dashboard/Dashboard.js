@@ -157,7 +157,7 @@ export const Dashboard = () => {
         <form onSubmit={handleSubmit}>
           <Grid container spacing={3}>
 
-            <Grid item xs={12} sm={9}>
+            <Grid item xs={12} sm={9} md={12}>
               <TextField
                 required
                 id="title"
@@ -168,7 +168,7 @@ export const Dashboard = () => {
               />
             </Grid>
 
-            <Grid item xs={12} sm={3}>
+            <Grid item xs={12} sm={3} md={12}>
               <FormControl variant="outlined" className={classes.formControl}>
                 <InputLabel id="aim">Aim</InputLabel>
                 <Select

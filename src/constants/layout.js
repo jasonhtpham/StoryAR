@@ -1,7 +1,7 @@
 
 class Layout {
   constructor() {
-    this.landingPage = "/story";
+    this.landingPage = "/loginRouter";
     this.menuItems = [
       {
         "name": "Story",
@@ -21,15 +21,15 @@ class Layout {
         "isFavourite": true,
         "subMenuItems": []
       },
-      // {
-      //   "name": "Example",
-      //   "type": "button",
-      //   "icon": "bytesize:code",
-      //   "controller": "/examples",
-      //   "customTitle": "Example Code File",
-      //   "isFavourite": true,
-      //   "subMenuItems": []
-      // },
+      {
+        "name": "Profile",
+        "type": "button",
+        "icon": "ant-design:profile-filled",
+        "controller": "/profile",
+        "customTitle": "Profile",
+        "isFavourite": true,
+        "subMenuItems": []
+      },
       {
         "name": "Logout",
         "type": "logout",

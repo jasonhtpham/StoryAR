@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { LoginContext, LoginProvider } from './common/LoginContext';
 import { LayoutContext, LayoutProvider } from './common/LayoutContext';
 import { DeviceInfoContext, DeviceInfoProvider } from './common/DeviceInfoContext';
+import { UserProfileContext, UserProfileProvider } from './dependants/UserContext';
 
 export {
   LoginContext,
@@ -10,7 +11,9 @@ export {
   LayoutContext,
   LayoutProvider,
   DeviceInfoContext,
-  DeviceInfoProvider
+  DeviceInfoProvider,
+  UserProfileContext,
+  UserProfileProvider
 };
 
 export const ContextManager = (props) => {
@@ -19,7 +22,9 @@ export const ContextManager = (props) => {
     <DeviceInfoProvider>
       <LayoutProvider>
         <LoginProvider>
-          {children}
+          <UserProfileProvider>
+            {children}
+          </UserProfileProvider>
         </LoginProvider>
       </LayoutProvider>
     </DeviceInfoProvider>
