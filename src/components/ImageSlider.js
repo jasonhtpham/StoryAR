@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { SliderData } from './SliderData';
 import {FaArrowAltCircleRight, FaArrowAltCircleLeft} from 'react-icons/fa'
-import ReactDOM from "react-dom";
 import { Link } from "react-router-dom";
 
 const ImageSlider = ({ slides }) => {
@@ -16,12 +15,6 @@ const ImageSlider = ({ slides }) => {
         setCurrent(current === 0 ? length - 1: current - 1);   
     }; 
 
-    console.log(current);
-
-    const handleClick = () => {
-
-    }
-
     if(!Array.isArray(slides) || slides.length <= 0) {
         return null;
     }
@@ -30,9 +23,9 @@ const ImageSlider = ({ slides }) => {
 
         <div>
         <div id='header'>
-        <h1>Story AR!</h1>
-        <h2>An interactive Augmented Reality Game! Welcome to a new World. </h2>
-        <p>A program by Jason Pham, Nikhita Paul, Scott West and Cameron Howling.</p> <br></br>
+        <h1>Story Augmented Reality - Let's have fun!</h1>
+        <p>An interactive Augmented Reality Game! Welcome to a new World.
+        A fun program by Jason Pham, Nikhita Paul, Scott West and Cameron Howling.</p> <br></br>
 
       </div>
         
@@ -45,7 +38,7 @@ const ImageSlider = ({ slides }) => {
                   <div className={index === current ? 'slide active' : 'slide'} key =
                   {index}>
                       {index === current && (
-                      <img src={slide.image} alt="travel image" className='image' />
+                      <img src={slide.image} alt="travel" className='image' />
                       )}
                   </div>        )
               
@@ -53,22 +46,44 @@ const ImageSlider = ({ slides }) => {
         </section>
         <br></br>
         <Link to="/register">
-            <button className="Start">Create Account</button>
+            <button className="Start">Create Account</button><span> </span>
+        </Link>
+            <button className="Start" href="https://reactjs.org/">Log In to Play</button>
+            <span> </span>
+        <Link to="/feedback"> 
+          <button className="Start">Provide Feedback</button>
         </Link>
         <br></br>
         <br></br>
-            <a href="https://reactjs.org/"><button className="Start">Play Game</button></a>
-        <br></br>
-        <br></br>
 
-        <footer class="col s12">
-        <h3>More Information</h3>
-            <a href="https://www.w3schools.com/" target="_blank">W3Schools!</a> <br></br>
-            <a href="https://www.youtube.com/watch?v=H7ZHemE2nRs" target="_blank">How Augmented Reality Works</a> <br></br>
-            <a href="https://materializecss.com/text-inputs.html" target="_blank">Materialize</a> 
+        <footer class="page-footer">
+          <div class="container">
+            <div class="row">
+              <div class="col l6 s12">
+                <h3 class="white-text">More Information</h3>
+                <p class="grey-text text-lighten-4">More information is below.</p>
+              </div>
+              <div class="col 4 offset- 2 s12">
+                <h3 class="white-text">Links </h3>
+                <ul>
+                  <li><a class="grey-text text-lighten-3" href="https://www.deakin.edu.au/study/find-a-course/information-technology" target="_blank">Information Technology at Deakin</a></li>
+                  <li><a class="grey-text text-lighten-3" href="https://www.deakin.edu.au/" target="_blank">Deakin University</a></li>
+                  <li><a class="grey-text text-lighten-3" href="https://www.youtube.com/watch?v=H7ZHemE2nRs&t=1s" target="_blank">How Augmented Reality Works</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="footer-copyright">
+            <div class="container">
+            © 2021 Copyright Text
+            </div>
+          </div>
         </footer>
-            <br></br>
-        </div>
+    
+
+        </div> 
+
+        
     );
 }
 

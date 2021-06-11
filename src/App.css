@@ -26,6 +26,16 @@
   border-radius: 10px;
 }
 
+.left {
+  float: left;
+  margin-right:10px;
+  }
+
+.right {
+  float: left;
+  margin-left: 10px;
+  }
+
 .right-arrow {
   position: absolute;
   top: 50%;
@@ -80,20 +90,15 @@ body {
 
 }
 
-footer {
-  color: rgb(17, 12, 34);
-  border: black;
-}
 
 button {
   border: black;
   color: white;
   padding: 5px 5px;
-  text-align: left;
   display:inline;
   font-size: 16px;
   cursor: pointer;
-  width: 30%;
+  width: 20%;
   background-color: rgb(35, 93, 160);
   top: 50px;
   min-height: 100px;

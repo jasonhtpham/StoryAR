@@ -1,6 +1,6 @@
 import React from 'react'
-import useForm from './UseForm.js'
 import validate from './ValidateInfo'
+import useForm from './UseForm'
 import './Form.css'
 
 const FormSignup = ({submitForm}) => {
@@ -13,8 +13,7 @@ const FormSignup = ({submitForm}) => {
         <div className="form-content-right">
             <form className="form" onSubmit={handleSubmit}>
                 <h1>Get started with us today! Create an 
-                    account by filling out the 
-                    information below.
+                    account.
                 </h1>
                 <div className="form-inputs">                    
                     <label htmlFor="username" 
