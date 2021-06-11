@@ -90,10 +90,20 @@ body {
 
 }
 
+footer {
+  border: black;
+  padding: 5px 5px;
+  display:inline;
+  font-size: 16px;
+  text-align: left;
+}
+
+card {
+  align-content: stretch;
+}
 
 button {
   border: black;
-  color: white;
   padding: 5px 5px;
   display:inline;
   font-size: 16px;
@@ -103,6 +113,7 @@ button {
   top: 50px;
   min-height: 100px;
   text-align: center;
+  color: white;
 
 }
 

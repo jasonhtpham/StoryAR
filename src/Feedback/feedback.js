@@ -30,10 +30,6 @@ async function listDatabases(client){
 };
 
 
-const MongoClient = require('mongodb').MongoClient;
-
-const uri = "mongodb+srv://west557:<password>@cluster0.g0vtv.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
-
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
 client.connect(err => {

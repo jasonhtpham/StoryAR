@@ -44,9 +44,18 @@
   },
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "main": "app.js",
-  "devDependencies": {},
+  "devDependencies": {
+    "ember-cli-materialize": "^0.22.0"
+  },
   "keywords": [],
-  "author": "",
+  "author": "Scott West",
   "license": "ISC",
-  "homepage": "https://localhost3000"
+  "homepage": "https://localhost3000",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jasonhtpham/StoryAR-frontend.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jasonhtpham/StoryAR-frontend/issues"
+  }
 }

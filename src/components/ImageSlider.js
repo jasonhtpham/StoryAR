@@ -3,6 +3,7 @@ import { SliderData } from './SliderData';
 import {FaArrowAltCircleRight, FaArrowAltCircleLeft} from 'react-icons/fa'
 import { Link } from "react-router-dom";
 
+
 const ImageSlider = ({ slides }) => {
     const [current, setCurrent] = useState(0);
     const length = slides.length; 
@@ -18,7 +19,7 @@ const ImageSlider = ({ slides }) => {
     if(!Array.isArray(slides) || slides.length <= 0) {
         return null;
     }
-
+    
     return (
 
         <div>
@@ -46,25 +47,22 @@ const ImageSlider = ({ slides }) => {
         </section>
         <br></br>
         <Link to="/register">
-            <button className="Start">Create Account</button><span> </span>
+            <button>Create Account</button><span> </span>
         </Link>
-            <button className="Start" href="https://reactjs.org/">Log In to Play</button>
+            <button href="https://reactjs.org/">Log In to Play</button>
             <span> </span>
         <Link to="/feedback"> 
-          <button className="Start">Provide Feedback</button>
+          <button>Provide Feedback</button>
         </Link>
         <br></br>
         <br></br>
 
-        <footer class="page-footer">
+        <footer>
           <div class="container">
             <div class="row">
               <div class="col l6 s12">
-                <h3 class="white-text">More Information</h3>
-                <p class="grey-text text-lighten-4">More information is below.</p>
+                <h3 class="white-text">More Information and Links</h3>
               </div>
-              <div class="col 4 offset- 2 s12">
-                <h3 class="white-text">Links </h3>
                 <ul>
                   <li><a class="grey-text text-lighten-3" href="https://www.deakin.edu.au/study/find-a-course/information-technology" target="_blank">Information Technology at Deakin</a></li>
                   <li><a class="grey-text text-lighten-3" href="https://www.deakin.edu.au/" target="_blank">Deakin University</a></li>
@@ -72,7 +70,13 @@ const ImageSlider = ({ slides }) => {
                 </ul>
               </div>
             </div>
-          </div>
+
+            <div class="card">
+                <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" src="rocket.jpg" height="500" width="600" />
+                </div>
+            </div>
+
           <div class="footer-copyright">
             <div class="container">
             © 2021 Copyright Text
@@ -80,6 +84,7 @@ const ImageSlider = ({ slides }) => {
           </div>
         </footer>
     
+
 
         </div> 
 
