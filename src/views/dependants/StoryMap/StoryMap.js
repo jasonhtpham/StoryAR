@@ -6,7 +6,19 @@ import { LayoutConfig } from 'constants/index';
 import { StoryArAPI } from 'helpers';
 import { useGeoLocation } from 'helpers';
 
-// import { Link } from 'react-router-dom';
+
+// function Storymap(){
+//   return (
+//     <div className="Storymap">
+//       <h1>Map</h1>
+      
+//     </div>
+//   );
+// }
+
+// export default Storymap;
+
+// // <GoogleMap />
 
 
 const useStyles = makeStyles(theme => createStyles({
@@ -73,3 +85,4 @@ export const StoryMap = () => {
     </Box>);
   return content;
 };
+

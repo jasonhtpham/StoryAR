@@ -10,6 +10,8 @@ import { Notification, DevModeSwitch, LoginCheck, GlobalStyles } from 'component
 import { DeveloperConfig } from 'constants/index';
 import { ThemeProvider } from 'theme';
 
+// import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
+
 const App = (props) => {
   useEffect(() => {
     document.title = process.env.REACT_APP_NAME;
@@ -25,6 +27,9 @@ const App = (props) => {
         </LoginCheck>
       </ThemeProvider>
     </ContextManager>
+
+
+
   );
 };
 
